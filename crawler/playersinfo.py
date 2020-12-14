@@ -6,11 +6,13 @@ Create Date：2020-12-10
 Change by:Null
 '''
 
+from sqlite3.dbapi2 import SQLITE_CREATE_TABLE
 import requests
 import re
 from bs4 import BeautifulSoup
 from lxml import etree
-import pymysql
+#import pymysql
+import sqlite3
 
 
 def main():
@@ -29,7 +31,7 @@ def geturl():
     url_list = tree.xpath('//div[@id="site_menu"]/ul/li[2]/div/a/@href')
     for i in range(len(url_list)):
         url_list[i] = 'https://www.basketball-reference.com'+url_list[i]
-    
+    playnumber = 0
     for j in range(30):
         # urlteam = 'https://www.basketball-reference.com/teams/LAC/2020.html'
         page_text = requests.get(url=url_list[j], headers=headers).text
@@ -137,7 +139,8 @@ def getplayers(player_list):
                             float(player_list[27+index*31]),float(player_list[28+index*31]), float(player_list[29+index*31]),
                             float(player_list[30+index*31])]
         #将处理过的数据存入数据库的表中
-        savemysql(player_list_temp)
+        # savemysql(player_list_temp)
+        savesqlite(player_list_temp)
 
 
 def savemysql(player_list_temp):
@@ -155,6 +158,22 @@ def savemysql(player_list_temp):
     cur.execute(sql, player_list_temp)
     conn.commit()
     conn.close
+
+# Modified By Dai Yucong
+def savesqlite(player_list_temp):
+    conn = sqlite3.connect('../backend/db.sqlite3')
+    cur = conn.cursor()
+    sql = """
+        insert into gsw (PlayerName,Season,Age,Tm,Lg,Pos,G,GS,MP,FG,FGA,
+        FGAver,ThreeP,ThreePA,ThreePAver,TwoP,TwoPA,TwoPAver,eFGAver,FT,FTA,FTAver,ORB,DRB,TRB,AST,
+        STL,BLK,TOV,PF,PTS)
+        values(?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s,?%s);"""
+    # 经处理的数据经过sql语句加入表中
+    cur.execute(sql, player_list_temp)
+    conn.commit()
+    cur.close()
+    conn.close
+
 
 if __name__ == "__main__":
     main()
