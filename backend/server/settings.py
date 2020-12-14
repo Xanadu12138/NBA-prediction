@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Added by user
+    'nbastats',
 ]
 
 MIDDLEWARE = [
