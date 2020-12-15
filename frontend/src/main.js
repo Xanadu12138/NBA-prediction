@@ -15,6 +15,7 @@ import ELEMENT from 'element-ui';
 Vue.prototype.$echarts = echarts;
 Vue.use(ELEMENT)
 Vue.config.productionTip = false
+Vue.config.devtools = true // cdn引入vue时，devtools需要在这里指定为ture才能使用
 
 new Vue({
     router,
