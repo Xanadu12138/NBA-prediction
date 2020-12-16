@@ -172,7 +172,7 @@ def savesqlite(player_list_temp):
     cur.execute(sql, player_list_temp)
     conn.commit()
     cur.close()
-    conn.close
+    conn.  
 
 
 if __name__ == "__main__":
