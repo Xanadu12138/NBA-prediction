@@ -13,7 +13,7 @@ export default [
     {
         path: "/data",
         name: "Data",
-        component: ()=> import("@/views/alldata/AllData.vue")
+        component: ()=> import("@/views/alldata/alldata.vue")
     },
     {
         path: "/prediction",
