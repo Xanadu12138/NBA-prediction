@@ -259,6 +259,8 @@ export default {
         margin 1rem
         position relative
         height 40rem
+        .title 
+            font-size 4rem
         .data
             font-size 3rem
             width 100%
@@ -284,6 +286,8 @@ export default {
         margin 1rem
         position relative
         height 46rem
+        .title 
+            font-size 4rem
         .data
             font-size 3rem
             width 100%
