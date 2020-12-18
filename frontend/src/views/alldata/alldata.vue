@@ -26,6 +26,7 @@
                         stripe
                         style="width: 100%"
                         :row-style="{ height: '6rem' }"
+                        @row-click="handleClickGoToDetail"
                     >
                         <el-table-column prop="name" label="姓名" width="180">
                         </el-table-column>
@@ -262,6 +263,12 @@ export default {
             ],
         }
     },
+    methods: {
+        handleClickGoToDetail(row, column, event) {
+            this.$router.push("/personaldata")
+            console.log(row, column, event)
+        },
+    },
 }
 </script>
 
@@ -272,7 +279,7 @@ export default {
         justify-content space-around
         margin 0 3rem 3rem
         .teams
-            .title 
+            .title
                 font-size 2rem
                 margin 2rem 1rem
             .teams-info
@@ -280,7 +287,7 @@ export default {
                 height 76.5rem
                 box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
         .persons
-            .title 
+            .title
                 font-size 2rem
                 margin 2rem 1rem
             .persons-info
