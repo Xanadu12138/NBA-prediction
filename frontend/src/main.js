@@ -3,16 +3,16 @@ import Vue from "vue"
 import App from "./App.vue"
 import router from "./router/index"
 import store from "./store"
-
+// 引入组件
+import echarts from "echarts"
+import ELEMENT from "element-ui"
+import VueEcharts from "vue-echarts"
 // css
 import "./assets/styles/reset.css"
 import "./assets/styles/border.css"
 
-// 引入组件
-import echarts from "echarts";
-import ELEMENT from 'element-ui';
-
-Vue.prototype.$echarts = echarts;
+Vue.prototype.$echarts = echarts
+Vue.component("vue-echarts", VueEcharts)
 Vue.use(ELEMENT)
 Vue.config.productionTip = false
 Vue.config.devtools = true // cdn引入vue时，devtools需要在这里指定为ture才能使用
