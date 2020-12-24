@@ -24,21 +24,23 @@ def main():
     }
     # 用来作为跳转页面的url，以爬取到所有的比赛信息
     for i in range(2020,2021):
-        for j in range(11,12):
-            for index in range(1,32,7):
+        for j in range(12,13):
+            for index in range(19,20,7):
                 urls = url +str(i)+'-'+str(j)+'-'+str(index)
                 print(urls)
-                askdata(Chi_Eng,urls,headers)
+                askdata(Chi_Eng,urls,headers,i)
 
 #得到所有的比赛信息
-def askdata(Chi_Eng,url,headers):
+def askdata(Chi_Eng,url,headers,i):
     info_list = list()
     page_text = requests.get(url=url, headers=headers).text
     tree = etree.HTML(page_text)
-    sc_list = tree.xpath('//tbody/tr/td[3]/a/@href')
+    sc_list = tree.xpath('//tbody/tr[position()>15]/td[3]/a/@href')
     for item in sc_list:
         page_text = requests.get(url=item, headers=headers).text
         tree = etree.HTML(page_text)
+        # 插入赛季
+        info_list.append(i)
         # 得到比赛球队的两个球队名字
         list_temp = tree.xpath('//div[@class="team_vs_box"]//p/a/text()')
         for item1 in list_temp:
@@ -47,13 +49,14 @@ def askdata(Chi_Eng,url,headers):
                 info_list.append(Chi_Eng[item1])
             else:
                 info_list.append(item1)
+
         list_temp = tree.xpath('//div[@class="team_vs_box"]//div[@class="message"]/div/text()')
         for item1 in list_temp:
             # 如果长度小于8，证明该球队没有主场客场成绩
             if len(item1)<8:
                 info_list.append('')
             else:
-                item1 = item1[4:10]
+                item1 = item1[4:8]
                 info_list.append(item1)
         # 得到比赛的比分信息
         list_temp = tree.xpath('//div[@class="team_vs_box"]//h2/text()')
@@ -65,7 +68,8 @@ def askdata(Chi_Eng,url,headers):
 def initsqlite():
     # 创建sqlite3的存储数据的表
     sql = """
-        create table if not exists schlist(
+        create table if not exists schlist1(
+            Sea char(5),
             Tm1 char(6),
             Tm2 char(6),
             Sco1 char(10),
@@ -85,15 +89,15 @@ def savemysql(team_list):
     list_temp = list()
 
     sql = """
-        insert into schlist (Tm1,Tm2,Sco1,Sco2,sco)
-        values(?,?,?,?,?);"""
+        insert into schlist1 (Sea,Tm1,Tm2,Sco1,Sco2,sco)
+        values(?,?,?,?,?,?);"""
 
     conn = sqlite3.connect('nba.db')
     cur = conn.cursor()
     # 用来存储一场比赛的信息，一场比赛的信息插入一次
     for index in range(len(team_list)):
         list_temp.append(team_list[index])
-        if len(list_temp) == 5:
+        if len(list_temp) == 6:
             cur.execute(sql,list_temp)
             conn.commit()
             list_temp.clear()

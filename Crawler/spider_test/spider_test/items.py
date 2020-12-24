@@ -1,0 +1,19 @@
+# Define here the models for your scraped items
+#
+# See documentation in:
+# https://docs.scrapy.org/en/latest/topics/items.html
+
+import scrapy
+
+
+class SpiderItem(scrapy.Item):
+    # define the fields for your item here like:
+    Name = scrapy.Field()
+    Num = scrapy.Field()
+    Pos = scrapy.Field()
+    Tall = scrapy.Field()
+    Wei = scrapy.Field()
+    Bri = scrapy.Field()
+    Tm = scrapy.Field()
+    Con = scrapy.Field()
+    Img =scrapy.Field()
