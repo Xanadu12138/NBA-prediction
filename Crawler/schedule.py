@@ -24,8 +24,8 @@ def main():
     }
     # 用来作为跳转页面的url，以爬取到所有的比赛信息
     for i in range(2020,2021):
-        for j in range(12,13):
-            for index in range(19,20,7):
+        for j in range(3,5):
+            for index in range(6,32,7):
                 urls = url +str(i)+'-'+str(j)+'-'+str(index)
                 print(urls)
                 askdata(Chi_Eng,urls,headers,i)
