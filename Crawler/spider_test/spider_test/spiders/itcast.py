@@ -1,7 +1,7 @@
 import scrapy
 import sqlite3
 from spider_test.items import SpiderItem,TeamItem,PlayerItem
-from spider_test.pipelines import deletedb
+# from spider_test.pipelines import deletedb
 class ItcastSpider(scrapy.Spider):
     name = 'itcast'
     # 爬取域范围，允许爬虫在这个域名下爬取（可选）
@@ -25,6 +25,7 @@ class ItcastSpider(scrapy.Spider):
             # .extract()将xpath对象转化为 Unicode对象
             item['Img'] = node.xpath(".//img/@src").extract()[0]
             item['Name'] = node.xpath('.//td[2]/b//text()').extract()[0]
+            item['EName'] = node.xpath('.//td[2]//p//b//text()').extract()[0]
             item['Num'] = node.xpath('.//td[3]//text()').extract()[0]
             item['Pos'] = node.xpath(".//td[4]/text()").extract()[0]
             item['Tall'] = node.xpath(".//td[5]/text()").extract()[0]
@@ -33,6 +34,7 @@ class ItcastSpider(scrapy.Spider):
             item['Tm'] = node.xpath("//li[@class='on']//span//text()").extract()[0]
             item['Con'] = node.xpath(".//td[8]//text()").extract()[0]
             yield(item)
+            # print(item)
 
 class TeamSpider(scrapy.Spider):
     name = 'Team'
@@ -84,7 +86,7 @@ class PlayerSpider(scrapy.Spider):
         'ITEM_PIPELINES' : {'spider_test.pipelines.SpiderPlayerPipeline': 300}
     }
     # 清空数据库
-    deletedb("playerlist")
+    # deletedb("playerlist")
     def parse(self,response):
         item = PlayerItem()
         node_list = response.xpath('//tbody/tr[position()>1]')

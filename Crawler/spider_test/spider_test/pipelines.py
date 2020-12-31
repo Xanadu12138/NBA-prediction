@@ -14,32 +14,28 @@ def sqlite3db():
     return conn
 
 # 清空数据库中一个表的内容
-def deletedb(name):
-    dbobj = sqlite3db()
-    cursor = dbobj.cursor()
-    sql = """
-        delete from %s;
-        """%(name)
-    cursor.execute(sql)
-    dbobj.commit()
-    dbobj.close
+# def deletedb(name):
+#     dbobj = sqlite3db()
+#     cursor = dbobj.cursor()
+#     sql = """
+#         delete from %s;
+#         """%(name)
+#     cursor.execute(sql)
+#     dbobj.commit()
+#     dbobj.close
 
 class SpiderTestPipeline:
     def process_item(self, item, spider):
         dbobj = sqlite3db()
         cursor = dbobj.cursor()
         sql = """
-        insert into playersinfo (Name,Tm,Num,Pos,Tall,Wei,Bri,Con,Img)
-        # values(?,?,?,?,?,?,?,?,?);
+        insert into playersinfo (Name,Tm,Num,Pos,Tall,Wei,Bri,Con,Img,Ename)
+        values(?,?,?,?,?,?,?,?,?,?);
         """
-        try:
-            cursor.execute(sql,(item['Name'],item['Tm'],item['Num'],item['Pos'],
-            item['Tall'],item['Wei'],item['Bri'],item['Con'],item['Img']))
-            dbobj.commit()
-            dbobj.close
-        except BaseException as e:
-            print("错误在这里>>>",e)
-            dbobj.rollback()
+        cursor.execute(sql,(item['Name'],item['Tm'],item['Num'],item['Pos'],
+        item['Tall'],item['Wei'],item['Bri'],item['Con'],item['Img'],item['EName']))
+        dbobj.commit()
+        dbobj.close
         return item
 
 class SpiderTeamPipeline:
@@ -73,6 +69,26 @@ class SpiderPlayerPipeline:
             cursor.execute(sql,(item['Ran'],item['Name'],item['Tm'],item['Sco'],item['FGA'],
             item['FGAver'],item['TPA'],item['TPAver'],item['FTA'],item['FTAver'],item['G'],
             item['Time']))
+            dbobj.commit()
+            dbobj.close
+        except BaseException as e:
+            print("错误在这里>>>",e)
+            dbobj.rollback()
+        return item
+
+class SpiderPlayersperPipeline:
+    def process_item(self, item, spider):
+        dbobj = sqlite3db()
+        cursor = dbobj.cursor()
+        sql = """
+        insert into player (Name,Season,Tm,G,GS,MP,FGA,FGAver,ThreePA,ThreePAver,FTA,FTAver,TRB,AST,STL,BLK,TOV,PF,PTS)
+        values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+        """
+        try:
+            cursor.execute(sql,(item['Name'],item['Season'],item['Tm'],item['G'],item['GS'],
+            item['MP'],item['FGA'],item['FGAver'],item['ThreePA'],item['ThreePAver'],
+            item['FTA'],item['FTAver'],item['TRB'],item['AST'],item['STL'],item['BLK'],
+            item['TOV'],item['PF'],item['PTS']))
             dbobj.commit()
             dbobj.close
         except BaseException as e:

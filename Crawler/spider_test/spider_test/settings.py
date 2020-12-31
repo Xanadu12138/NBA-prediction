@@ -66,6 +66,7 @@ ITEM_PIPELINES = {
    'spider_test.pipelines.SpiderTestPipeline': 300,
    'spider_test.pipelines.SpiderTeamPipeline': 300,
    'spider_test.pipelines.SpiderPlayerPipeline': 300,
+   'spider_test.pipelines.SpiderPlayersperPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

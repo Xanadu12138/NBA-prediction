@@ -10,6 +10,7 @@ class SpiderItem(scrapy.Item):
     # define the fields for your item here like:
     # 姓名
     Name = scrapy.Field()
+    EName = scrapy.Field()
     # 号码
     Num = scrapy.Field()
     # 位置
@@ -69,3 +70,26 @@ class PlayerItem(scrapy.Item):
     FTAver = scrapy.Field()
     G = scrapy.Field()
     Time = scrapy.Field()
+
+class PlayersperItem(scrapy.Item):
+    Name = scrapy.Field()
+    Season = scrapy.Field()
+    Tm = scrapy.Field()
+    G = scrapy.Field()
+    GS = scrapy.Field()
+    MP = scrapy.Field()
+    FGA = scrapy.Field()
+    FGAver = scrapy.Field()
+    ThreePA = scrapy.Field()
+    ThreePAver = scrapy.Field()
+    FTA = scrapy.Field()
+    FTAver = scrapy.Field()
+    TRB = scrapy.Field()
+    AST = scrapy.Field()
+    STL = scrapy.Field()
+    BLK = scrapy.Field()
+    TOV = scrapy.Field()
+    PF = scrapy.Field()
+    PTS = scrapy.Field()
+
+
