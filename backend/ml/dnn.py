@@ -36,7 +36,6 @@ class DNN(nn.Module):
             self.input_team_home_layer(torch.cat([home_vector, home_state], dim=1)),
             negative_slope=-0.1
         )
-
         away_representation = F.leaky_relu(
             self.input_team_away_layer(torch.cat([away_vector, away_state], dim=1)),
             negative_slope=-0.1
