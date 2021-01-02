@@ -5,7 +5,9 @@
             <nav class="nav">
                 <div class="game" @click="goToPath('/game')">赛程</div>
                 <div class="data" @click="goToPath('/data')">数据</div>
-                <div class="prediction" @click="goToPath('/prediction')">预测</div>
+                <div class="prediction" @click="goToPath('/prediction')">
+                    预测
+                </div>
             </nav>
         </div>
     </div>
@@ -26,7 +28,7 @@ export default {
 
 <style lang="stylus" scoped>
 .common-header
-    background-color #D8D8D8
+    background-color #74b9ff
     font-size 3rem
     .container
         width 90vw

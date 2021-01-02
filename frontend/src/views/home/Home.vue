@@ -58,7 +58,7 @@
                 <h1 class="title">数据版</h1>
                 <div class="data">
                     <div class="detail detail1">
-                        <div class="title">{{ data[0].title }}</div>
+                        <div class="detail-title">{{ data[0].title }}</div>
                         <div class="info">
                             <div class="one">
                                 <span>1</span>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="detail detail2">
-                        <div class="title">{{ data[1].title }}</div>
+                        <div class="detail-title">{{ data[1].title }}</div>
                         <div class="info">
                             <div class="one">
                                 <span>1</span>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <div class="detail detail3">
-                        <div class="title">{{ data[2].title }}</div>
+                        <div class="detail-title">{{ data[2].title }}</div>
                         <div class="info">
                             <div class="one">
                                 <span>1</span>
@@ -119,7 +119,7 @@
                     </div>
 
                     <div class="detail detail4">
-                        <div class="title">{{ data[3].title }}</div>
+                        <div class="detail-title">{{ data[3].title }}</div>
                         <div class="info">
                             <div class="one">
                                 <span>1</span>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
                     <div class="detail detail5">
-                        <div class="title">{{ data[4].title }}</div>
+                        <div class="detail-title">{{ data[4].title }}</div>
                         <div class="info">
                             <div class="one">
                                 <span>1</span>
@@ -259,8 +259,9 @@ export default {
         margin 1rem
         position relative
         height 40rem
-        .title 
+        .title
             font-size 4rem
+            color #fdcb6e
         .data
             font-size 3rem
             width 100%
@@ -273,7 +274,7 @@ export default {
             .game
                 width 34rem
                 height 26.4rem
-                background-color #D8D8D8
+                background-color #fdcb6e
                 display flex
                 flex-direction column
                 justify-content space-around
@@ -286,8 +287,9 @@ export default {
         margin 1rem
         position relative
         height 46rem
-        .title 
+        .title
             font-size 4rem
+            color #e17055
         .data
             font-size 3rem
             width 100%
@@ -311,5 +313,5 @@ export default {
                     align-items center
                     width inherit
                     height 25.3rem
-                    background-color #D8D8D8
+                    background-color #ff7675
 </style>
