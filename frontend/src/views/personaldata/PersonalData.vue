@@ -265,6 +265,24 @@ export default {
                                 name: "数据情况",
                             },
                         ],
+                        areaStyle: {
+                            opacity: 0.9,
+                            color: new this.$echarts.graphic.RadialGradient(
+                                0.5,
+                                0.5,
+                                1,
+                                [
+                                    {
+                                        color: "#B8D3E4",
+                                        offset: 0,
+                                    },
+                                    {
+                                        color: "#72ACD1",
+                                        offset: 1,
+                                    },
+                                ]
+                            ),
+                        },
                     },
                 ],
             }

@@ -4,11 +4,11 @@
         <div class="content">
             <h1>NBA 未来赛程</h1>
             <div class="time-board">
-                <div class="time">
-                    <div class="date">12-12</div>
+                <div v-for="(item, index) in data" :key="index" class="time">
+                    <div class="date">{{ index }}</div>
                     <div class="info">
                         <el-table
-                            :data="tableData"
+                            :data="item"
                             :row-style="{ height: '8.5rem' }"
                             :row-class-name="tableRowClassName"
                             style="width: 100%; font-size: 2.5rem;"
@@ -73,53 +73,102 @@ export default {
     },
     data() {
         return {
-            tableData: [
-                {
-                    time: "8:00",
-                    state: "已结束",
-                    first: "火箭",
-                    score: "99:99",
-                    second: "公牛",
-                    data: "",
-                    prediction: "40%",
-                },
-                {
-                    time: "8:00",
-                    state: "已结束",
-                    first: "火箭",
-                    score: "99:99",
-                    second: "公牛",
-                    data: "",
-                    prediction: "40%",
-                },
-                {
-                    time: "10:00",
-                    state: "进行中",
-                    first: "火箭",
-                    score: "99:99",
-                    second: "公牛",
-                    data: "",
-                    prediction: "40%",
-                },
-                {
-                    time: "12:00",
-                    state: "未开始",
-                    first: "火箭",
-                    score: "99:99",
-                    second: "公牛",
-                    data: "",
-                    prediction: "40%",
-                },
-                {
-                    time: "12:00",
-                    state: "未开始",
-                    first: "火箭",
-                    score: "99:99",
-                    second: "公牛",
-                    data: "",
-                    prediction: "40%",
-                },
-            ],
+            data: {
+                "12-12": [
+                    {
+                        time: "8:00",
+                        state: "已结束",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "8:00",
+                        state: "已结束",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "10:00",
+                        state: "进行中",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "12:00",
+                        state: "未开始",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "12:00",
+                        state: "未开始",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                ],
+                "12-13": [
+                    {
+                        time: "8:00",
+                        state: "已结束",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "8:00",
+                        state: "已结束",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "10:00",
+                        state: "进行中",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "12:00",
+                        state: "未开始",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                    {
+                        time: "12:00",
+                        state: "未开始",
+                        first: "火箭",
+                        score: "99:99",
+                        second: "公牛",
+                        data: "",
+                        prediction: "40%",
+                    },
+                ],
+            },
         }
     },
     methods: {
@@ -140,28 +189,30 @@ export default {
 
 <style lang="stylus">
 .content
-    h1 
+    h1
         margin-left 10rem
         font-size 4rem
     .time-board
+        margin 0 auto 3rem
+        width 125rem
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
         font-size 2.5rem
         .time
             margin 0 auto
             position relative
             width 125rem
             height 56rem
-            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
             padding 3rem
-            .date 
+            .date
                 margin-left 2rem
             .info
                 margin 0 auto
 
-.el-table 
+.el-table
     .row-before
         background: oldlace;
-    .row-now 
+    .row-now
         background: #F56C6C35
-    .row-future 
+    .row-future
         background: #f0f9eb;
 </style>

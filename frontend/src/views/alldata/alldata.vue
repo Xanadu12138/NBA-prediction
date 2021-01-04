@@ -683,4 +683,6 @@ export default {
             height 100%
 .anchorBL
     display none
+.el-table__row
+    cursor pointer
 </style>

@@ -6,52 +6,51 @@
                 <h1 class="title">赛程板</h1>
                 <div class="data">
                     <div class="game game1">
-                        <div class="time">
-                            <span>{{ game[0].date }}</span>
-                            <span>{{ game[0].time }}</span>
+                        <div class="separate time">
+                            <div>{{ game[0].date }}</div>
+                            <div>{{ game[0].time }}</div>
                         </div>
-                        <div class="team1">
-                            <span>{{ game[0].first }}</span>
-                            <span>{{ game[0].firstScore }}</span>
+                        <div class="separate team1">
+                            <div>{{ game[0].first }}</div>
+                            <div>{{ game[0].firstScore }}</div>
                         </div>
-                        <div class="team2">
-                            <span>{{ game[0].second }}</span>
-                            <span>{{ game[0].secondScore }}</span>
+                        <div class="separate team2">
+                            <div>{{ game[0].second }}</div>
+                            <div>{{ game[0].secondScore }}</div>
                         </div>
                         <div class="button">数据</div>
                     </div>
                     <div class="game game2">
-                        <div class="time">
-                            <span>{{ game[1].date }}</span>
-                            <span>{{ game[1].time }}</span>
+                        <div class="time separate">
+                            <div>{{ game[1].date }}</div>
+                            <div>{{ game[1].time }}</div>
                         </div>
-                        <div class="team1">
-                            <span>{{ game[1].first }}</span>
-                            <span>{{ game[1].firstScore }}</span>
+                        <div class="team1 separate">
+                            <div>{{ game[1].first }}</div>
+                            <div>{{ game[1].firstScore }}</div>
                         </div>
-                        <div class="team2">
-                            <span>{{ game[1].second }}</span>
-                            <span>{{ game[1].secondScore }}</span>
+                        <div class="team2 separate">
+                            <div>{{ game[1].second }}</div>
+                            <div>{{ game[1].secondScore }}</div>
                         </div>
-                        <div class="button">数据</div>
+                        <div class="button" @click="toData">数据</div>
                     </div>
                     <div class="game game3">
-                        <div class="time">
-                            <span>{{ game[2].date }}</span>
-                            <span>{{ game[2].time }}</span>
+                        <div class="time separate">
+                            <div>{{ game[2].date }}</div>
+                            <div>{{ game[2].time }}</div>
                         </div>
-                        <div class="team1">
-                            <span>{{ game[2].first }}</span>
-                            <span>{{ game[2].firstScore }}</span>
+                        <div class="team1 separate">
+                            <div>{{ game[2].first }}</div>
+                            <div>{{ game[2].firstScore }}</div>
                         </div>
-                        <div class="team2">
-                            <span>{{ game[2].second }}</span>
-                            <span>{{ game[2].secondScore }}</span>
+                        <div class="team2 separate">
+                            <div>{{ game[2].second }}</div>
+                            <div>{{ game[2].secondScore }}</div>
                         </div>
                         <div class="button">数据</div>
                     </div>
-
-                    <div class="more">全部</div>
+                    <div class="more" @click="goToPath('/data')">全部</div>
                 </div>
             </section>
             <section class="data-board">
@@ -60,60 +59,60 @@
                     <div class="detail detail1">
                         <div class="detail-title">{{ data[0].title }}</div>
                         <div class="info">
-                            <div class="one">
-                                <span>1</span>
-                                <span>{{ data[0].no1 }}</span>
-                                <span>{{ data[0].no1score }}</span>
+                            <div class="one separate">
+                                <div>1</div>
+                                <div>{{ data[0].no1 }}</div>
+                                <div>{{ data[0].no1score }}</div>
                             </div>
-                            <div class="two">
-                                <span>2</span>
-                                <span>{{ data[0].no2 }}</span>
-                                <span>{{ data[0].no2score }}</span>
+                            <div class="two separate">
+                                <div>2</div>
+                                <div>{{ data[0].no2 }}</div>
+                                <div>{{ data[0].no2score }}</div>
                             </div>
-                            <div class="three">
-                                <span>3</span>
-                                <span>{{ data[0].no3 }}</span>
-                                <span>{{ data[0].no3score }}</span>
+                            <div class="three separate">
+                                <div>3</div>
+                                <div>{{ data[0].no3 }}</div>
+                                <div>{{ data[0].no3score }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="detail detail2">
                         <div class="detail-title">{{ data[1].title }}</div>
                         <div class="info">
-                            <div class="one">
-                                <span>1</span>
-                                <span>{{ data[1].no1 }}</span>
-                                <span>{{ data[1].no1score }}</span>
+                            <div class="one separate">
+                                <div>1</div>
+                                <div>{{ data[1].no1 }}</div>
+                                <div>{{ data[1].no1score }}</div>
                             </div>
-                            <div class="two">
-                                <span>2</span>
-                                <span>{{ data[1].no2 }}</span>
-                                <span>{{ data[1].no2score }}</span>
+                            <div class="two separate">
+                                <div>2</div>
+                                <div>{{ data[1].no2 }}</div>
+                                <div>{{ data[1].no2score }}</div>
                             </div>
-                            <div class="three">
-                                <span>3</span>
-                                <span>{{ data[1].no3 }}</span>
-                                <span>{{ data[1].no3score }}</span>
+                            <div class="three separate">
+                                <div>3</div>
+                                <div>{{ data[1].no3 }}</div>
+                                <div>{{ data[1].no3score }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="detail detail3">
                         <div class="detail-title">{{ data[2].title }}</div>
                         <div class="info">
-                            <div class="one">
-                                <span>1</span>
-                                <span>{{ data[2].no1 }}</span>
-                                <span>{{ data[2].no1score }}</span>
+                            <div class="one separate">
+                                <div>1</div>
+                                <div>{{ data[2].no1 }}</div>
+                                <div>{{ data[2].no1score }}</div>
                             </div>
-                            <div class="two">
-                                <span>2</span>
-                                <span>{{ data[2].no2 }}</span>
-                                <span>{{ data[2].no2score }}</span>
+                            <div class="two separate">
+                                <div>2</div>
+                                <div>{{ data[2].no2 }}</div>
+                                <div>{{ data[2].no2score }}</div>
                             </div>
-                            <div class="three">
-                                <span>3</span>
-                                <span>{{ data[2].no3 }}</span>
-                                <span>{{ data[2].no3score }}</span>
+                            <div class="three separate">
+                                <div>3</div>
+                                <div>{{ data[2].no3 }}</div>
+                                <div>{{ data[2].no3score }}</div>
                             </div>
                         </div>
                     </div>
@@ -121,40 +120,40 @@
                     <div class="detail detail4">
                         <div class="detail-title">{{ data[3].title }}</div>
                         <div class="info">
-                            <div class="one">
-                                <span>1</span>
-                                <span>{{ data[3].no1 }}</span>
-                                <span>{{ data[3].no1score }}</span>
+                            <div class="one separate">
+                                <div>1</div>
+                                <div>{{ data[3].no1 }}</div>
+                                <div>{{ data[3].no1score }}</div>
                             </div>
-                            <div class="two">
-                                <span>2</span>
-                                <span>{{ data[3].no2 }}</span>
-                                <span>{{ data[3].no2score }}</span>
+                            <div class="two separate">
+                                <div>2</div>
+                                <div>{{ data[3].no2 }}</div>
+                                <div>{{ data[3].no2score }}</div>
                             </div>
-                            <div class="three">
-                                <span>3</span>
-                                <span>{{ data[3].no3 }}</span>
-                                <span>{{ data[3].no3score }}</span>
+                            <div class="three separate">
+                                <div>3</div>
+                                <div>{{ data[3].no3 }}</div>
+                                <div>{{ data[3].no3score }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="detail detail5">
                         <div class="detail-title">{{ data[4].title }}</div>
                         <div class="info">
-                            <div class="one">
-                                <span>1</span>
-                                <span>{{ data[4].no1 }}</span>
-                                <span>{{ data[4].no1score }}</span>
+                            <div class="one separate">
+                                <div>1</div>
+                                <div>{{ data[4].no1 }}</div>
+                                <div>{{ data[4].no1score }}</div>
                             </div>
-                            <div class="two">
-                                <span>2</span>
-                                <span>{{ data[4].no2 }}</span>
-                                <span>{{ data[4].no2score }}</span>
+                            <div class="two separate">
+                                <div>2</div>
+                                <div>{{ data[4].no2 }}</div>
+                                <div>{{ data[4].no2score }}</div>
                             </div>
-                            <div class="three">
-                                <span>3</span>
-                                <span>{{ data[4].no3 }}</span>
-                                <span>{{ data[4].no3score }}</span>
+                            <div class="three separate">
+                                <div>3</div>
+                                <div>{{ data[4].no3 }}</div>
+                                <div>{{ data[4].no3score }}</div>
                             </div>
                         </div>
                     </div>
@@ -166,11 +165,13 @@
 
 <script>
 import CommonHeader from "@/components/header/Header"
+import { goToPath } from "@/utils/function.js"
 
 export default {
     name: "Home",
     data() {
         return {
+            goToPath,
             game: [
                 {
                     date: "12-12",
@@ -283,6 +284,7 @@ export default {
                     font-size 2.2rem
             .more
                 font-size 2rem
+                cursor pointer
     .data-board
         margin 1rem
         position relative
@@ -314,4 +316,10 @@ export default {
                     width inherit
                     height 25.3rem
                     background-color #ff7675
+
+
+.separate
+    display flex
+    justify-content space-around
+    width 100%
 </style>

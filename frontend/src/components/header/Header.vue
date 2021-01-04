@@ -1,7 +1,10 @@
 <template>
     <div class="common-header">
         <div class="container">
-            <div class="logo" @click="goToPath('/')">NBA PREDICTION</div>
+            <div class="logo" @click="goToPath('/')">
+                <img class="ball" src="../../assets/pictures/篮球.png" alt="" />
+                <span>NBA PREDICTION</span>
+            </div>
             <nav class="nav">
                 <div class="game" @click="goToPath('/game')">赛程</div>
                 <div class="data" @click="goToPath('/data')">数据</div>
@@ -37,6 +40,14 @@ export default {
         display flex
         justify-content space-between
         align-items center
+        cursor pointer
+
+        .logo
+            .ball
+                height 3.5rem
+                line-height 3.5rem
+                vertical-align top
+                margin-right 2rem
         .nav
             // flex 1 1 10rem
             flex-basis 36rem
