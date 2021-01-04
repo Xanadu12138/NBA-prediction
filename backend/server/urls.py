@@ -19,4 +19,5 @@ from nbastats import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/GetAllTeams', views.GetAllTeams),
 ]
