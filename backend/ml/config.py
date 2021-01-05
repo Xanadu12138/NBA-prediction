@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import pandas as pd 
 import numpy as np 
+import os
 
 # Settings for model
 use_cuda = torch.cuda.is_available()
@@ -12,6 +13,7 @@ TEAM_VECTOR_SIZE = 21
 batch_size = 64
 learning_rate = 0.001
 num_epochs = 500
+savePath = os.path.join('models','dnn.pt')
 
 # Settings for data processing
 season = '2018-2019' # Select which season for training model

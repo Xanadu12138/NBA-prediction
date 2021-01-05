@@ -59,3 +59,5 @@ for epoch in range(num_epochs):
                 100. * train_r[0] / train_r[1],
                 100. * val_r[0] / val_r[1]
             ))
+
+torch.save(dnn.state_dict(), savePath)

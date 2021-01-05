@@ -20,4 +20,7 @@ from nbastats import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/GetAllTeams', views.GetAllTeams),
+    path('api/GetPlayersInfo', views.GetPlayersInfo),
+    path('api/GetTeamsInfo', views.GetTeamsInfo),
+    path('api/GetTopPlayers', views.GetTopPlayers),
 ]

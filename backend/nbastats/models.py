@@ -59,14 +59,15 @@ class Player(models.Model):
     threepaver = models.CharField(db_column='ThreePAver', blank=True, null=True, max_length = 10)  # Field name made lowercase.
     fta = models.CharField(db_column='FTA', blank=True, null=True, max_length = 10)  # Field name made lowercase.
     ftaver = models.CharField(db_column='FTAver', blank=True, null=True, max_length = 10)  # Field name made lowercase.
-    trb = models.CharField(db_column='TRB', blank=True, null=True, max_length = 10)  # Field name made lowercase.
-    ast = models.CharField(db_column='AST', blank=True, null=True, max_length = 10)  # Field name made lowercase.
-    stl = models.CharField(db_column='STL', blank=True, null=True, max_length = 10)  # Field name made lowercase.
-    blk = models.CharField(db_column='BLK', blank=True, null=True, max_length = 10)  # Field name made lowercase.
-    tov = models.CharField(db_column='TOV', blank=True, null=True, max_length = 10)  # Field name made lowercase.
+    trb = models.FloatField(db_column='TRB', blank=True, null=True)  # Field name made lowercase.
+    ast = models.FloatField(db_column='AST', blank=True, null=True)  # Field name made lowercase.
+    stl = models.FloatField(db_column='STL', blank=True, null=True)  # Field name made lowercase.
+    blk = models.FloatField(db_column='BLK', blank=True, null=True)  # Field name made lowercase.
+    tov = models.FloatField(db_column='TOV', blank=True, null=True)  # Field name made lowercase.
     pf = models.CharField(db_column='PF', blank=True, null=True, max_length = 10)  # Field name made lowercase.
-    pts = models.CharField(db_column='PTS', blank=True, null=True, max_length = 10)  # Field name made lowercase.
-    
+    pts = models.FloatField(db_column='PTS', blank=True, null=True)  # Field name made lowercase.
+    id = models.IntegerField(db_column='SID', primary_key=True)
+    playerId = models.ForeignKey(Playersinfo,db_column = 'ID', on_delete=models.CASCADE)
     class Meta:
         managed = False
         db_table = 'player'

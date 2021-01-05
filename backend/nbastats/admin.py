@@ -5,4 +5,3 @@ from .models import *
 admin.site.register(Playersinfo)
 admin.site.register(Teamlist)
 admin.site.register(Player)
-# admin.site.register(Playersinfo)
