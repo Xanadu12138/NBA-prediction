@@ -4,17 +4,17 @@
         <section class="container">
             <div class="basic">
                 <div class="avatar">
-                    <img :src="basicData.img" alt="" />
+                    <img :src="data.basicData.img" alt="" />
                 </div>
                 <div class="info">
                     <div class="title">球员信息</div>
                     <div class="data-simple">
-                        <div class="name">姓名：{{ basicData.name }}</div>
-                        <div class="num">号码：{{ basicData.num }}</div>
-                        <div class="pos">位置：{{ basicData.pos }}</div>
-                        <div class="tall">身高：{{ basicData.tall }}</div>
-                        <div class="bri">生日：{{ basicData.bri }}</div>
-                        <div class="tm">球队：{{ basicData.tm }}</div>
+                        <div class="name">姓名：{{ data.basicData.name }}</div>
+                        <div class="num">号码：{{ data.basicData.num }}</div>
+                        <div class="pos">位置：{{ data.basicData.pos }}</div>
+                        <div class="tall">身高：{{ data.basicData.tall }}</div>
+                        <div class="bri">生日：{{ data.basicData.bri }}</div>
+                        <div class="tm">球队：{{ data.basicData.tm }}</div>
                     </div>
                 </div>
                 <div class="ability">
@@ -29,54 +29,54 @@
                 <div class="title">数据表格</div>
                 <div class="table-all">
                     <el-table
-                        :data="tableData"
+                        :data="data.tableData"
                         :row-style="{ height: '8.5rem' }"
                         :row-class-name="tableRowClassName"
                         style="width: 100%; font-size: 1.6rem;"
                     >
-                        <el-table-column prop="Season" label="赛季" width="70">
+                        <el-table-column prop="season" label="赛季" width="70">
                         </el-table-column>
-                        <el-table-column prop="Tm" label="球队" width="70">
+                        <el-table-column prop="tm" label="球队" width="70">
                         </el-table-column>
-                        <el-table-column prop="MP" label="上场时间" width="90">
+                        <el-table-column prop="mp" label="上场时间" width="90">
                         </el-table-column>
-                        <el-table-column prop="PTS" label="得分" width="70">
+                        <el-table-column prop="pts" label="得分" width="70">
                         </el-table-column>
                         <el-table-column
-                            prop="FGAver"
+                            prop="fgaver"
                             label="命中率"
                             width="80"
                         >
                         </el-table-column>
-                        <el-table-column prop="FGA" label="投篮数" width="70">
+                        <el-table-column prop="fga" label="投篮数" width="70">
                         </el-table-column>
                         <el-table-column
-                            prop="3PAver"
+                            prop="3paver"
                             label="三分率"
                             width="80"
                         >
                         </el-table-column>
-                        <el-table-column prop="3PA" label="三分数" width="70">
+                        <el-table-column prop="3pa" label="三分数" width="70">
                         </el-table-column>
                         <el-table-column
-                            prop="FTAver"
+                            prop="ftaver"
                             label="罚球率"
                             width="80"
                         >
                         </el-table-column>
-                        <el-table-column prop="FTA" label="罚球数" width="75">
+                        <el-table-column prop="fta" label="罚球数" width="75">
                         </el-table-column>
-                        <el-table-column prop="TRB" label="篮板" width="75">
+                        <el-table-column prop="trb" label="篮板" width="75">
                         </el-table-column>
-                        <el-table-column prop="AST" label="助攻" width="75">
+                        <el-table-column prop="ast" label="助攻" width="75">
                         </el-table-column>
-                        <el-table-column prop="STL" label="抢断" width="75">
+                        <el-table-column prop="stl" label="抢断" width="75">
                         </el-table-column>
-                        <el-table-column prop="BLK" label="盖帽" width="75">
+                        <el-table-column prop="blk" label="盖帽" width="75">
                         </el-table-column>
-                        <el-table-column prop="TOV" label="失误" width="75">
+                        <el-table-column prop="tov" label="失误" width="75">
                         </el-table-column>
-                        <el-table-column prop="PF" label="个犯" width="75">
+                        <el-table-column prop="pf" label="个犯" width="75">
                         </el-table-column>
                     </el-table>
                 </div>
@@ -94,6 +94,7 @@
 <script>
 import CommonHeader from "@/components/header/Header"
 import DataDetail from "./components/DataDetail"
+import { playerInfo } from "@/api"
 
 export default {
     name: "PersonalData",
@@ -103,128 +104,138 @@ export default {
     },
     data() {
         return {
-            basicData: {
-                img: "../../assets/pictures/headDefaultImg.jpeg",
-                name: "阿尔德里奇",
-                num: "02",
-                pos: "中锋",
-                tall: "210",
-                bri: "1985-07-19",
-                tm: "马刺",
+            data: {
+                basicData: {
+                    img: "../../assets/pictures/headDefaultImg.jpeg",
+                    name: "阿尔德里奇",
+                    num: "02",
+                    pos: "中锋",
+                    tall: "210",
+                    bri: "1985-07-19",
+                    tm: "马刺",
+                },
+                tableData: [
+                    {
+                        Season: "2014-2015",
+                        Tm: "ORL",
+                        MP: 17,
+                        PTS: 5.2,
+                        FGAver: 0.447,
+                        FGA: 4.4,
+                        FG: 2,
+                        "3PAver": 0.271,
+                        "3PA": 1,
+                        "3P": 0.3,
+                        FTAver: 0.721,
+                        FTA: 1.3,
+                        FT: 0.9,
+                        TRB: 3.6,
+                        AST: 0.7,
+                        STL: 0.4,
+                        BLK: 0.5,
+                        TOV: 0.8,
+                        PF: 1.8,
+                    },
+                    {
+                        Season: "2015-2016",
+                        Tm: "ORL",
+                        MP: 17,
+                        PTS: 5.2,
+                        FGAver: 0.447,
+                        FGA: 4.4,
+                        FG: 2,
+                        "3PAver": 0.271,
+                        "3PA": 1,
+                        "3P": 0.3,
+                        FTAver: 0.721,
+                        FTA: 1.3,
+                        FT: 0.9,
+                        TRB: 3.6,
+                        AST: 0.7,
+                        STL: 0.4,
+                        BLK: 0.5,
+                        TOV: 0.8,
+                        PF: 1.8,
+                    },
+                    {
+                        Season: "2016-2017",
+                        Tm: "ORL",
+                        MP: 17,
+                        PTS: 5.2,
+                        FGAver: 0.447,
+                        FGA: 4.4,
+                        FG: 2,
+                        "3PAver": 0.271,
+                        "3PA": 1,
+                        "3P": 0.3,
+                        FTAver: 0.721,
+                        FTA: 1.3,
+                        FT: 0.9,
+                        TRB: 3.6,
+                        AST: 0.7,
+                        STL: 0.4,
+                        BLK: 0.5,
+                        TOV: 0.8,
+                        PF: 1.8,
+                    },
+                    {
+                        Season: "2017-2018",
+                        Tm: "ORL",
+                        MP: 17,
+                        PTS: 5.2,
+                        FGAver: 0.447,
+                        FGA: 4.4,
+                        FG: 2,
+                        "3PAver": 0.271,
+                        "3PA": 1,
+                        "3P": 0.3,
+                        FTAver: 0.721,
+                        FTA: 1.3,
+                        FT: 0.9,
+                        TRB: 3.6,
+                        AST: 0.7,
+                        STL: 0.4,
+                        BLK: 0.5,
+                        TOV: 0.8,
+                        PF: 1.8,
+                    },
+                    {
+                        Season: "2019-2020",
+                        Tm: "ORL",
+                        MP: 17,
+                        PTS: 5.2,
+                        FGAver: 0.447,
+                        FGA: 4.4,
+                        FG: 2,
+                        "3PAver": 0.271,
+                        "3PA": 1,
+                        "3P": 0.3,
+                        FTAver: 0.721,
+                        FTA: 1.3,
+                        FT: 0.9,
+                        TRB: 3.6,
+                        AST: 0.7,
+                        STL: 0.4,
+                        BLK: 0.5,
+                        TOV: 0.8,
+                        PF: 1.8,
+                    },
+                ],
             },
-            tableData: [
-                {
-                    Season: "2014-2015",
-                    Tm: "ORL",
-                    MP: 17,
-                    PTS: 5.2,
-                    FGAver: 0.447,
-                    FGA: 4.4,
-                    FG: 2,
-                    "3PAver": 0.271,
-                    "3PA": 1,
-                    "3P": 0.3,
-                    FTAver: 0.721,
-                    FTA: 1.3,
-                    FT: 0.9,
-                    TRB: 3.6,
-                    AST: 0.7,
-                    STL: 0.4,
-                    BLK: 0.5,
-                    TOV: 0.8,
-                    PF: 1.8,
-                },
-                {
-                    Season: "2015-2016",
-                    Tm: "ORL",
-                    MP: 17,
-                    PTS: 5.2,
-                    FGAver: 0.447,
-                    FGA: 4.4,
-                    FG: 2,
-                    "3PAver": 0.271,
-                    "3PA": 1,
-                    "3P": 0.3,
-                    FTAver: 0.721,
-                    FTA: 1.3,
-                    FT: 0.9,
-                    TRB: 3.6,
-                    AST: 0.7,
-                    STL: 0.4,
-                    BLK: 0.5,
-                    TOV: 0.8,
-                    PF: 1.8,
-                },
-                {
-                    Season: "2016-2017",
-                    Tm: "ORL",
-                    MP: 17,
-                    PTS: 5.2,
-                    FGAver: 0.447,
-                    FGA: 4.4,
-                    FG: 2,
-                    "3PAver": 0.271,
-                    "3PA": 1,
-                    "3P": 0.3,
-                    FTAver: 0.721,
-                    FTA: 1.3,
-                    FT: 0.9,
-                    TRB: 3.6,
-                    AST: 0.7,
-                    STL: 0.4,
-                    BLK: 0.5,
-                    TOV: 0.8,
-                    PF: 1.8,
-                },
-                {
-                    Season: "2017-2018",
-                    Tm: "ORL",
-                    MP: 17,
-                    PTS: 5.2,
-                    FGAver: 0.447,
-                    FGA: 4.4,
-                    FG: 2,
-                    "3PAver": 0.271,
-                    "3PA": 1,
-                    "3P": 0.3,
-                    FTAver: 0.721,
-                    FTA: 1.3,
-                    FT: 0.9,
-                    TRB: 3.6,
-                    AST: 0.7,
-                    STL: 0.4,
-                    BLK: 0.5,
-                    TOV: 0.8,
-                    PF: 1.8,
-                },
-                {
-                    Season: "2019-2020",
-                    Tm: "ORL",
-                    MP: 17,
-                    PTS: 5.2,
-                    FGAver: 0.447,
-                    FGA: 4.4,
-                    FG: 2,
-                    "3PAver": 0.271,
-                    "3PA": 1,
-                    "3P": 0.3,
-                    FTAver: 0.721,
-                    FTA: 1.3,
-                    FT: 0.9,
-                    TRB: 3.6,
-                    AST: 0.7,
-                    STL: 0.4,
-                    BLK: 0.5,
-                    TOV: 0.8,
-                    PF: 1.8,
-                },
-            ],
+
+            playerID: this.$route.params.id,
         }
     },
     provide() {
         return {
-            tableData: this.tableData,
+            tableData: this.data.tableData[0].fga,
         }
+    },
+    mounted() {
+        playerInfo(this.playerID).then((data) => {
+            this.data = data
+            console.log(this.data.tableData)
+        })
     },
     methods: {
         getOptions() {
@@ -256,11 +267,11 @@ export default {
                         data: [
                             {
                                 value: [
-                                    this.tableData[0].PTS,
-                                    this.tableData[0].BLK,
-                                    this.tableData[0].STL,
-                                    this.tableData[0].TRB,
-                                    this.tableData[0].AST,
+                                    this.data.tableData[0].pts,
+                                    this.data.tableData[0].blk,
+                                    this.data.tableData[0].stl,
+                                    this.data.tableData[0].trb,
+                                    this.data.tableData[0].ast,
                                 ],
                                 name: "数据情况",
                             },

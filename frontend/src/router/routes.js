@@ -8,21 +8,21 @@ export default [
     {
         path: "/game",
         name: "Game",
-        component: ()=> import("@/views/game/Game.vue"),
+        component: () => import("@/views/game/Game.vue"),
     },
     {
         path: "/data",
         name: "Data",
-        component: ()=> import("@/views/alldata/alldata.vue")
+        component: () => import("@/views/alldata/alldata.vue"),
     },
     {
         path: "/prediction",
         name: "Prediction",
-        component: () => import("@/views/prediction/Prediction.vue")
+        component: () => import("@/views/prediction/Prediction.vue"),
     },
     {
-        path: "/personaldata",
+        path: "/personaldata/:id",
         name: "PersonalData",
-        component: () => import("@/views/personaldata/PersonalData.vue")
-    }
+        component: () => import("@/views/personaldata/PersonalData.vue"),
+    },
 ]

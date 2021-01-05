@@ -1,14 +1,14 @@
 import axios from "axios"
 
 const service = axios.create({
-    baseURL: "http://www.baidu.com",
-    timeout: 1000,
+    baseURL: "http://10.116.110.182:8000",
+    timeout: 10000,
 })
 
 service.interceptors.response.use(
     (response) => {
-        console.log(response)
         if (response.status === 200 && response.data) {
+            console.log(response.data)
             return response.data
         } else {
             return Promise.reject(new Error("请求失败"))

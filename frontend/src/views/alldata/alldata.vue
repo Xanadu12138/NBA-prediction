@@ -16,15 +16,11 @@
                         >
                             <el-table-column
                                 prop="east"
-                                label="东部"
+                                label="球队"
                                 width="180"
                             >
                             </el-table-column>
-                            <el-table-column
-                                prop="west"
-                                label="西部"
-                                width="180"
-                            >
+                            <el-table-column prop="west" label="" width="180">
                             </el-table-column>
                         </el-table>
                     </div>
@@ -70,7 +66,7 @@
                             >
                             </el-table-column>
                             <el-table-column
-                                prop="blockShot"
+                                prop="blockshots"
                                 label="场均盖帽"
                                 width="180"
                             >
@@ -94,6 +90,8 @@
 <script>
 import CommonHeader from "@/components/header/Header"
 import "echarts/extension/bmap/bmap"
+import { teamInfo } from "@/api"
+
 const eastData = [
     { name: "波士顿凯尔特人", rank: 3 }, // 16 - `${number}`
     { name: "布鲁克林篮网", rank: 7 },
@@ -182,192 +180,88 @@ export default {
         return {
             teamsTableData: [
                 {
-                    east: "魔术",
-                    west: "太阳",
-                },
-                {
                     east: "骑士",
-                    west: "快船",
-                },
-                {
-                    east: "76人",
-                    west: "国王",
+                    west: "魔术",
                 },
                 {
                     east: "步行者",
-                    west: "爵士",
+                    west: "老鹰",
                 },
                 {
-                    east: "老鹰",
-                    west: "开拓者",
-                },
-                {
-                    east: "篮网",
-                    west: "湖人",
-                },
-                {
-                    east: "凯尔特人",
-                    west: "鹈鹕",
-                },
-                {
-                    east: "黄蜂",
-                    west: "森林狼",
-                },
-                {
-                    east: "尼克斯",
-                    west: "马刺",
+                    east: "76人",
+                    west: "篮网",
                 },
                 {
                     east: "热火",
-                    west: "勇士",
+                    west: "尼克斯",
                 },
                 {
-                    east: "雄鹿",
+                    east: "凯尔特人",
+                    west: "雄鹿",
+                },
+                {
+                    east: "黄蜂",
+                    west: "活塞",
+                },
+                {
+                    east: "猛龙",
+                    west: "奇才",
+                },
+                {
+                    east: "开拓者",
                     west: "雷霆",
+                },
+                {
+                    east: "鹈鹕",
+                    west: "快船",
+                },
+
+                {
+                    east: "湖人",
+                    west: "太阳",
+                },
+                {
+                    east: "国王",
+                    west: "森林狼",
+                },
+                {
+                    east: "马刺",
+                    west: "爵士",
                 },
                 {
                     east: "公牛",
                     west: "独行侠",
                 },
                 {
-                    east: "猛龙",
-                    west: "掘金",
-                },
-                {
-                    east: "活塞",
-                    west: "灰熊",
-                },
-                {
-                    east: "奇才",
+                    east: "勇士",
                     west: "火箭",
                 },
-            ],
-            personsTableData: [
                 {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
-                },
-                {
-                    name: "阿尔德里奇",
-                    score: "18.9",
-                    board: "7.4",
-                    assist: "2.4",
-                    steal: "0.7",
-                    blockShot: "1.6",
+                    east: "灰熊",
+                    west: "掘金",
                 },
             ],
+            personsTableData: null,
             options: {},
+            teamID: 1,
         }
     },
+    // watch: {
+    //     teamID() {
+    //         teamInfo(this.teamID).then((data) => {
+    //             console.log(data)
+    //             this.personsTableData = data.personsTableData
+    //             console.log(this.personsTableData)
+    //         })
+    //     },
+    // },
     mounted() {
+        teamInfo(this.teamID).then((data) => {
+            console.log(data)
+            this.personsTableData = data.personsTableData
+            console.log(this.personsTableData)
+        })
+
         this.options = {
             bmap: {
                 key: "D6wdYEzm1ZXfXV88WgSMuxNEXHaXacTz",
@@ -615,9 +509,10 @@ export default {
         }
     },
     methods: {
-        handleClickGoToDetail(row, column, event) {
-            this.$router.push("/personaldata")
-            console.log(row, column, event)
+        handleClickGoToDetail(row) {
+            this.$router.push("/personaldata/" + row.playerID)
+            // console.log(row, column, event)
+            // console.log(row.playerID)
         },
         tableCellClassName({ row, column, rowIndex, columnIndex }) {
             //注意这里是解构
@@ -625,11 +520,18 @@ export default {
             row.index = rowIndex
             column.index = columnIndex
         },
-        handleClickTeam(row, column, cell, event) {
-            let teamID = column.index === 0 ? row.index * 2 : row.index * 2 + 1
-            console.log(teamID)
-            console.log(cell)
-            console.log(event)
+        handleClickTeam(row, column) {
+            let teamID =
+                column.index === 0 ? row.index * 2 + 1 : row.index * 2 + 2
+            this.teamID = teamID
+            // console.log(this.teamID)
+            // console.log(cell)
+            // console.log(event)
+            teamInfo(teamID).then((data) => {
+                console.log(data)
+                this.personsTableData = data.personsTableData
+                console.log(this.personsTableData)
+            })
         },
     },
 }

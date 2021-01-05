@@ -1,21 +1,28 @@
 import request from "../utils/request"
 
-export function teamInfo() {
+export function playerInfo(id) {
     return request({
-        url: "/text",
+        url: "/api/GetPlayersInfo",
         method: "get",
         params: {
-            a: 1,
+            PlayerID: id,
         },
     })
 }
 
-export function playerInfo() {
+export function teamInfo(id) {
     return request({
-        url: "/text",
+        url: "/api/GetTeamsInfo",
         method: "get",
         params: {
-            a: 1,
+            TeamID: id,
         },
+    })
+}
+
+export function rank() {
+    return request({
+        url: "/api/GetTopPlayers",
+        method: "get",
     })
 }
