@@ -68,103 +68,103 @@
                 </div>
                 <div class="data">
                     <div class="detail detail1">
-                        <div class="detail-title">{{ data[0].title }}</div>
+                        <div class="detail-title">得分</div>
                         <div class="info">
                             <div class="one separate">
                                 <div>1</div>
-                                <div>{{ data[0].no1 }}</div>
-                                <div>{{ data[0].no1score }}</div>
+                                <div>{{ top[0].no1 }}</div>
+                                <div>{{ top[0].no1score }}</div>
                             </div>
                             <div class="two separate">
                                 <div>2</div>
-                                <div>{{ data[0].no2 }}</div>
-                                <div>{{ data[0].no2score }}</div>
+                                <div>{{ top[0].no2 }}</div>
+                                <div>{{ top[0].no2score }}</div>
                             </div>
                             <div class="three separate">
                                 <div>3</div>
-                                <div>{{ data[0].no3 }}</div>
-                                <div>{{ data[0].no3score }}</div>
+                                <div>{{ top[0].no3 }}</div>
+                                <div>{{ top[0].no3score }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="detail detail2">
-                        <div class="detail-title">{{ data[1].title }}</div>
+                        <div class="detail-title">篮板</div>
                         <div class="info">
                             <div class="one separate">
                                 <div>1</div>
-                                <div>{{ data[1].no1 }}</div>
-                                <div>{{ data[1].no1score }}</div>
+                                <div>{{ top[1].no1 }}</div>
+                                <div>{{ top[1].no1score }}</div>
                             </div>
                             <div class="two separate">
                                 <div>2</div>
-                                <div>{{ data[1].no2 }}</div>
-                                <div>{{ data[1].no2score }}</div>
+                                <div>{{ top[1].no2 }}</div>
+                                <div>{{ top[1].no2score }}</div>
                             </div>
                             <div class="three separate">
                                 <div>3</div>
-                                <div>{{ data[1].no3 }}</div>
-                                <div>{{ data[1].no3score }}</div>
+                                <div>{{ top[1].no3 }}</div>
+                                <div>{{ top[1].no3score }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="detail detail3">
-                        <div class="detail-title">{{ data[2].title }}</div>
+                        <div class="detail-title">助攻</div>
                         <div class="info">
                             <div class="one separate">
                                 <div>1</div>
-                                <div>{{ data[2].no1 }}</div>
-                                <div>{{ data[2].no1score }}</div>
+                                <div>{{ top[2].no1 }}</div>
+                                <div>{{ top[2].no1score }}</div>
                             </div>
                             <div class="two separate">
                                 <div>2</div>
-                                <div>{{ data[2].no2 }}</div>
-                                <div>{{ data[2].no2score }}</div>
+                                <div>{{ top[2].no2 }}</div>
+                                <div>{{ top[2].no2score }}</div>
                             </div>
                             <div class="three separate">
                                 <div>3</div>
-                                <div>{{ data[2].no3 }}</div>
-                                <div>{{ data[2].no3score }}</div>
+                                <div>{{ top[2].no3 }}</div>
+                                <div>{{ top[2].no3score }}</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="detail detail4">
-                        <div class="detail-title">{{ data[3].title }}</div>
+                        <div class="detail-title">抢断</div>
                         <div class="info">
                             <div class="one separate">
                                 <div>1</div>
-                                <div>{{ data[3].no1 }}</div>
-                                <div>{{ data[3].no1score }}</div>
+                                <div>{{ top[3].no1 }}</div>
+                                <div>{{ top[3].no1score }}</div>
                             </div>
                             <div class="two separate">
                                 <div>2</div>
-                                <div>{{ data[3].no2 }}</div>
-                                <div>{{ data[3].no2score }}</div>
+                                <div>{{ top[3].no2 }}</div>
+                                <div>{{ top[3].no2score }}</div>
                             </div>
                             <div class="three separate">
                                 <div>3</div>
-                                <div>{{ data[3].no3 }}</div>
-                                <div>{{ data[3].no3score }}</div>
+                                <div>{{ top[3].no3 }}</div>
+                                <div>{{ top[3].no3score }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="detail detail5">
-                        <div class="detail-title">{{ data[4].title }}</div>
+                        <div class="detail-title">盖帽</div>
                         <div class="info">
                             <div class="one separate">
                                 <div>1</div>
-                                <div>{{ data[4].no1 }}</div>
-                                <div>{{ data[4].no1score }}</div>
+                                <div>{{ top[4].no1 }}</div>
+                                <div>{{ top[4].no1score }}</div>
                             </div>
                             <div class="two separate">
                                 <div>2</div>
-                                <div>{{ data[4].no2 }}</div>
-                                <div>{{ data[4].no2score }}</div>
+                                <div>{{ top[4].no2 }}</div>
+                                <div>{{ top[4].no2score }}</div>
                             </div>
                             <div class="three separate">
                                 <div>3</div>
-                                <div>{{ data[4].no3 }}</div>
-                                <div>{{ data[4].no3score }}</div>
+                                <div>{{ top[4].no3 }}</div>
+                                <div>{{ top[4].no3score }}</div>
                             </div>
                         </div>
                     </div>
@@ -177,6 +177,7 @@
 <script>
 import CommonHeader from "@/components/header/Header"
 import { goToPath } from "@/utils/function.js"
+import { rank } from "@/api"
 
 export default {
     name: "Home",
@@ -209,57 +210,18 @@ export default {
                     secondScore: "99",
                 },
             ],
-            data: [
-                {
-                    title: "得分",
-                    no1: "xxx",
-                    no1score: "xx",
-                    no2: "xxx",
-                    no2score: "xx",
-                    no3: "xxx",
-                    no3score: "xx",
-                },
-                {
-                    title: "篮板",
-                    no1: "xxx",
-                    no1score: "xx",
-                    no2: "xxx",
-                    no2score: "xx",
-                    no3: "xxx",
-                    no3score: "xx",
-                },
-                {
-                    title: "助攻",
-                    no1: "xxx",
-                    no1score: "xx",
-                    no2: "xxx",
-                    no2score: "xx",
-                    no3: "xxx",
-                    no3score: "xx",
-                },
-                {
-                    title: "抢断",
-                    no1: "xxx",
-                    no1score: "xx",
-                    no2: "xxx",
-                    no2score: "xx",
-                    no3: "xxx",
-                    no3score: "xx",
-                },
-                {
-                    title: "盖帽",
-                    no1: "xxx",
-                    no1score: "xx",
-                    no2: "xxx",
-                    no2score: "xx",
-                    no3: "xxx",
-                    no3score: "xx",
-                },
-            ],
+            top: [],
         }
     },
     components: {
         CommonHeader,
+    },
+    mounted() {
+        rank().then((data) => {
+            // console.log(data.data[0])
+            this.top = data.data
+            // console.log(this.top)
+        })
     },
 }
 </script>
