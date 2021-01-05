@@ -1,3 +1,4 @@
+from django.http import response
 from django.shortcuts import render
 from django.conf import settings
 from django.http import request
@@ -5,7 +6,10 @@ from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
-import datetime
+
+import ml.predict
+
+
 
 # Create your views here.
 
@@ -31,6 +35,7 @@ def GetTeamsInfo(request):
         team = get_object_or_404(Teamlist, Id = teamId)
         players = Playersinfo.objects.filter(tm = team)
         dataList = []
+
         for player in players:
             playerDict = {}
             # Get stats by player 
@@ -133,5 +138,12 @@ def GetTopPlayers(request):
         return JsonResponse(response)
 
 
+def Predict(request):
+    if request.method == 'GET':
+        HomeTeam = request.GET.get('HomeTeam')
+        AwayTeam = request.GET.get('AwayTeam')
+        prob = ml.predict.predict(HomeTeam,AwayTeam)
 
+        response = {'HomeTeamWinPossibility':prob}
+        return JsonResponse(response)
             

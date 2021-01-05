@@ -1,5 +1,5 @@
-
-from config import * 
+# from config import *
+from ml.config import * 
 from torch.utils.data.dataset import Dataset
 from torchvision import transforms
 import re
@@ -69,8 +69,8 @@ def GetTeamDict(csv_path):
     return teamDict
 
 
-def LoadDataset():
-    teamDict = GetTeamDict('data/2018-2019teamstats.csv')
+def LoadDataset(path):
+    teamDict = GetTeamDict(path)
     NBA_Dataset = NBADataset('data/teamresult.csv',teamDict)
     # Init sampler
     indices = range(len(NBA_Dataset))
@@ -83,4 +83,4 @@ def LoadDataset():
         
 
 if __name__ == "__main__":
-    LoadDataset()
+    LoadDataset('data/2018-2019teamstats.csv')

@@ -1,13 +1,18 @@
-
-from config import * 
-
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import pandas as pd 
+import numpy as np 
+# import config
+import ml.config as config
 
 class DNN(nn.Module):
     
     def __init__(self):
         super(DNN, self).__init__()
-        self.input_team_home_layer = nn.Linear(CURRENT_COMP_VECTOR_SIZE+TEAM_VECTOR_SIZE, 64)
-        self.input_team_away_layer = nn.Linear(CURRENT_COMP_VECTOR_SIZE+TEAM_VECTOR_SIZE, 64)
+        self.input_team_home_layer = nn.Linear(config.CURRENT_COMP_VECTOR_SIZE+config.TEAM_VECTOR_SIZE, 64)
+        self.input_team_away_layer = nn.Linear(config.CURRENT_COMP_VECTOR_SIZE+config.TEAM_VECTOR_SIZE, 64)
         self.home_team_layer = nn.Linear(64, 128)
         self.away_team_layer = nn.Linear(64, 128)
         self.comp_layer_1 = nn.Linear(256, 256)

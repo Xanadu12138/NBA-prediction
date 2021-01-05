@@ -1,5 +1,6 @@
 from numpy.core.fromnumeric import ptp
-from config import * 
+from ml.config import * 
+# from config import *
 import pandas as pd 
 
 # Get Player stats during specific season.

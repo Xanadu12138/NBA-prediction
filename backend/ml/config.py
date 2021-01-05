@@ -11,8 +11,8 @@ use_cuda = torch.cuda.is_available()
 CURRENT_COMP_VECTOR_SIZE = 2
 TEAM_VECTOR_SIZE = 21
 batch_size = 64
-learning_rate = 0.001
-num_epochs = 500
+learning_rate = 0.01
+num_epochs = 50
 savePath = os.path.join('models','dnn.pt')
 
 # Settings for data processing

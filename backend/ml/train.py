@@ -11,7 +11,7 @@ if use_cuda:
 print('Network loading is done!')
 
 # Load Dataset
-train_dataset, test_dataset = LoadDataset()
+train_dataset, test_dataset = LoadDataset('data/2018-2019teamstats.csv')
 
 print('Dataset loading is done!')
 
@@ -24,7 +24,6 @@ for epoch in range(num_epochs):
     train_right = [] # record accuracy of training set
     for batch_idx, (tm1Stats, tm2Stats, tm1His, tm2His, label) in enumerate(train_dataset):
         dnn.train()
-
         # Load to GPU if cuda is available
         if use_cuda:
             tm1Stats, tm2Stats, tm1His, tm2His, label = tm1Stats.cuda(), tm2Stats.cuda(), tm1His.cuda(), tm2His.cuda(), label.cuda()

@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/GetPlayersInfo', views.GetPlayersInfo),
     path('api/GetTeamsInfo', views.GetTeamsInfo),
     path('api/GetTopPlayers', views.GetTopPlayers),
+    path('api/Predict', views.Predict),
 ]

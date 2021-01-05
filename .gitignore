@@ -136,3 +136,6 @@ dmypy.json
 
 # Static files
 backend/static/*
+
+# Model files
+backend/ml/models/*
