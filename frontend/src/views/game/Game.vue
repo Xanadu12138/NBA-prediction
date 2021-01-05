@@ -4,7 +4,7 @@
         <div class="content">
             <div class="title">
                 <img src="../../assets/pictures/未来.png" alt="" />
-                <h1>NBA 未来赛程</h1>
+                <h1>NBA 近期赛程</h1>
             </div>
             <div class="time-board">
                 <div v-for="(item, index) in data" :key="index" class="time">
@@ -19,43 +19,31 @@
                             <el-table-column
                                 prop="time"
                                 label="时间"
-                                width="170"
+                                width="240"
                             >
                             </el-table-column>
                             <el-table-column
                                 prop="state"
                                 label="状态"
-                                width="200"
+                                width="240"
                             >
                             </el-table-column>
                             <el-table-column
                                 prop="first"
                                 label="主队"
-                                width="180"
+                                width="240"
                             >
                             </el-table-column>
                             <el-table-column
                                 prop="score"
                                 label="比分"
-                                width="180"
+                                width="240"
                             >
                             </el-table-column>
                             <el-table-column
                                 prop="second"
                                 label="客队"
-                                width="180"
-                            >
-                            </el-table-column>
-                            <el-table-column
-                                prop="data"
-                                label="数据"
-                                width="180"
-                            >
-                            </el-table-column>
-                            <el-table-column
-                                prop="prediction"
-                                label="预测"
-                                width="100"
+                                width="240"
                             >
                             </el-table-column>
                         </el-table>
@@ -77,98 +65,186 @@ export default {
     data() {
         return {
             data: {
-                "12-12": [
+                "1-5": [
                     {
                         time: "8:00",
                         state: "已结束",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        first: "魔术",
+                        score: "103:83",
+                        second: "骑士",
                     },
                     {
                         time: "8:00",
                         state: "已结束",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        first: "76人",
+                        score: "118:101",
+                        second: "黄蜂",
                     },
                     {
-                        time: "10:00",
-                        state: "进行中",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        time: "8:30",
+                        state: "已结束",
+                        first: "老鹰",
+                        score: "108:113",
+                        second: "尼克斯",
                     },
                     {
-                        time: "12:00",
-                        state: "未开始",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        time: "8:30",
+                        state: "已结束",
+                        first: "热火",
+                        score: "118:90",
+                        second: "雷霆",
                     },
                     {
-                        time: "12:00",
-                        state: "未开始",
+                        time: "8:30",
+                        state: "已结束",
+                        first: "猛龙",
+                        score: "114:126",
+                        second: "凯尔特人",
+                    },
+                    {
+                        time: "9:00",
+                        state: "已结束",
                         first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        score: "100:113",
+                        second: "独行侠",
+                    },
+                    {
+                        time: "9:00",
+                        state: "已结束",
+                        first: "雄鹿",
+                        score: "125:115",
+                        second: "活塞",
+                    },
+                    {
+                        time: "9:00",
+                        state: "已结束",
+                        first: "鹈鹕",
+                        score: "116:118",
+                        second: "步行者",
+                    },
+                    {
+                        time: "11:00",
+                        state: "已结束",
+                        first: "勇士",
+                        score: "137:106",
+                        second: "国王",
                     },
                 ],
-                "12-13": [
+                "1-6": [
                     {
-                        time: "8:00",
-                        state: "已结束",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        time: "8:30",
+                        state: "进行中",
+                        first: "篮网",
+                        score: "-:-",
+                        second: "爵士",
                     },
                     {
-                        time: "8:00",
-                        state: "已结束",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        time: "9:00",
+                        state: "进行中",
+                        first: "灰熊",
+                        score: "-:-",
+                        second: "湖人",
                     },
                     {
                         time: "10:00",
-                        state: "进行中",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        state: "未开始",
+                        first: "掘金",
+                        score: "-:-",
+                        second: "森林狼",
                     },
                     {
-                        time: "12:00",
+                        time: "11:00",
                         state: "未开始",
-                        first: "火箭",
-                        score: "99:99",
-                        second: "公牛",
-                        data: "",
-                        prediction: "40%",
+                        first: "快船",
+                        score: "-:-",
+                        second: "马刺",
                     },
                     {
-                        time: "12:00",
+                        time: "11:30",
                         state: "未开始",
-                        first: "火箭",
-                        score: "99:99",
+                        first: "开拓者",
+                        score: "-:-",
                         second: "公牛",
                         data: "",
-                        prediction: "40%",
+                    },
+                ],
+                "1-7": [
+                    {
+                        time: "8:00",
+                        state: "未开始",
+                        first: "步行者",
+                        score: "-:-",
+                        second: "火箭",
+                    },
+                    {
+                        time: "8:00",
+                        state: "未开始",
+                        first: "魔术",
+                        score: "-:-",
+                        second: "骑士",
+                    },
+                    {
+                        time: "8:00",
+                        state: "未开始",
+                        first: "76人",
+                        score: "-:-",
+                        second: "奇才",
+                    },
+                    {
+                        time: "8:30",
+                        state: "未开始",
+                        first: "老鹰",
+                        score: "-:-",
+                        second: "黄蜂",
+                    },
+                    {
+                        time: "8:30",
+                        state: "未开始",
+                        first: "热火",
+                        score: "-:-",
+                        second: "凯尔特人",
+                    },
+                    {
+                        time: "8:30",
+                        state: "未开始",
+                        first: "尼克斯",
+                        score: "-:-",
+                        second: "爵士",
+                    },
+                    {
+                        time: "9:00",
+                        state: "未开始",
+                        first: "雄鹿",
+                        score: "-:-",
+                        second: "活塞",
+                    },
+                    {
+                        time: "9:00",
+                        state: "未开始",
+                        first: "鹈鹕",
+                        score: "-:-",
+                        second: "雷霆",
+                    },
+                    {
+                        time: "10:00",
+                        state: "未开始",
+                        first: "太阳",
+                        score: "-:-",
+                        second: "猛龙",
+                    },
+                    {
+                        time: "11:00",
+                        state: "未开始",
+                        first: "勇士",
+                        score: "-:-",
+                        second: "快船",
+                    },
+                    {
+                        time: "11:00",
+                        state: "未开始",
+                        first: "国王",
+                        score: "-:-",
+                        second: "公牛",
                     },
                 ],
             },
@@ -211,7 +287,7 @@ export default {
             margin 0 auto
             position relative
             width 100%
-            height 55rem
+            // height 55rem
             padding 3rem
             .date
                 margin-left 0rem

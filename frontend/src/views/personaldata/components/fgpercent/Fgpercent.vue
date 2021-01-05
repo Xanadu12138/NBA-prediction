@@ -22,29 +22,40 @@ export default {
     components: {
         CommonCard,
     },
-    inject: ["tableData"],
+    inject: ["getTableData"],
     mounted() {
         console.log(this.tableData)
     },
     computed: {
+        tableData() {
+            // console.log(this.getTableData())
+            return this.getTableData()
+        },
         season() {
             let res = []
             for (let data of this.tableData) {
-                res.push(data.Season)
+                // console.log(data)
+                res.push(data.season)
             }
+            console.log(res)
             return res
         },
         pts() {
             let res = []
             for (let data of this.tableData) {
-                res.push(data.FGAver)
+                let fgaver = Number(data.fgaver.slice(0, -1))
+                // console.log(fgaver)
+                res.push(fgaver)
+                // console.log(data.fgaver)
             }
+            console.log(res)
             return res
         },
         pieData() {
             let res = []
             for (let data of this.tableData) {
-                res.push({ value: data.FGAver, name: data.Season })
+                let fgaver = Number(data.fgaver.slice(0, -1))
+                res.push({ value: fgaver, name: data.season })
             }
             return res
         },

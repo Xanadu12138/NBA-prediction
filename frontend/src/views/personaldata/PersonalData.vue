@@ -222,19 +222,19 @@ export default {
                     },
                 ],
             },
-
             playerID: this.$route.params.id,
         }
     },
     provide() {
         return {
-            tableData: this.data.tableData[0].fga,
+            getTableData: this.getTableData,
+            // tableData: this.data.tableData,
         }
     },
-    mounted() {
+    created() {
         playerInfo(this.playerID).then((data) => {
             this.data = data
-            console.log(this.data.tableData)
+            // console.log(this.data.tableData)
         })
     },
     methods: {
@@ -298,6 +298,10 @@ export default {
                 ],
             }
         },
+        getTableData() {
+            console.log(this.data.tableData)
+            return this.data.tableData
+        },
     },
 }
 </script>
@@ -314,10 +318,13 @@ export default {
         height 30rem
         margin 3rem 0
         .avatar
-            width 20rem
-            height 20rem
+            width 15rem
+            height 21rem
             margin 4.5rem 0 0 0
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
+            img
+                width 100%
+                overflow hidden
         .info
             width 50rem
             height 30rem
@@ -356,7 +363,7 @@ export default {
                 height 27rem
     .data-table
         width 120rem
-        height 52rem
+        // height 52rem
         margin 5rem 0
         .title
             font-size 2.2rem
