@@ -647,16 +647,18 @@ export default {
                 .title
                     font-size 2rem
                     margin 2rem 1rem
+                    color #2c3e50
                 .teams-info
-                    width 36.5rem
+                    width 25.3vw
                     height 76.5rem
                     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
             .persons
                 .title
                     font-size 2rem
                     margin 2rem 1rem
+                    color #2c3e50
                 .persons-info
-                    width 77.2rem
+                    width 53.6vw
                     height 95rem
                     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
         .team-map
@@ -664,6 +666,7 @@ export default {
             .title
                 font-size 2rem
                 margin 2rem 1rem
+                color #2c3e50
             .map
                 display flex
                 justify-content space-between

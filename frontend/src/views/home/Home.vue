@@ -3,7 +3,10 @@
         <common-header></common-header>
         <div class="container">
             <section class="game-board">
-                <h1 class="title">赛程板</h1>
+                <div class="title">
+                    <img src="../../assets/pictures/战术板.png" alt="" />
+                    <h1 class="title">赛程</h1>
+                </div>
                 <div class="data">
                     <div class="game game1">
                         <div class="separate time">
@@ -50,11 +53,19 @@
                         </div>
                         <div class="button">数据</div>
                     </div>
-                    <div class="more" @click="goToPath('/data')">全部</div>
+                    <div class="more" @click="goToPath('/data')">
+                        <img
+                            src="../../assets/pictures/方向-向右-粗.png"
+                            alt=""
+                        />
+                    </div>
                 </div>
             </section>
             <section class="data-board">
-                <h1 class="title">数据版</h1>
+                <div class="title">
+                    <img src="../../assets/pictures/数据.png" alt="" />
+                    <h1 class="title">数据</h1>
+                </div>
                 <div class="data">
                     <div class="detail detail1">
                         <div class="detail-title">{{ data[0].title }}</div>
@@ -255,14 +266,20 @@ export default {
 
 <style lang="stylus" scoped>
 .container
-    margin 3rem 3rem
+    margin 0rem 3rem 3rem 3rem
     .game-board
         margin 1rem
         position relative
         height 40rem
         .title
             font-size 4rem
-            color #fdcb6e
+            color #2c3e50
+            display flex
+            align-items center
+            img
+                height 5rem
+                width 4.5rem
+                margin-right 2rem
         .data
             font-size 3rem
             width 100%
@@ -275,7 +292,7 @@ export default {
             .game
                 width 34rem
                 height 26.4rem
-                background-color #fdcb6e
+                background-color #ecf0f1
                 display flex
                 flex-direction column
                 justify-content space-around
@@ -285,13 +302,21 @@ export default {
             .more
                 font-size 2rem
                 cursor pointer
+                margin-left -4rem
+                img
+                    height 7rem
     .data-board
-        margin 1rem
+        margin 3rem 1rem 1rem 1rem
         position relative
         height 46rem
         .title
             font-size 4rem
-            color #e17055
+            color #2c3e50
+            display flex
+            align-items center
+            img
+                height 4rem
+                margin-right 2rem
         .data
             font-size 3rem
             width 100%
@@ -315,7 +340,7 @@ export default {
                     align-items center
                     width inherit
                     height 25.3rem
-                    background-color #ff7675
+                    background-color #bdc3c7
 
 
 .separate

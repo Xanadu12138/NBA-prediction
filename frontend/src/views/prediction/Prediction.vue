@@ -96,11 +96,13 @@ export default {
     .info
         margin 3rem 0
         font-size 2rem
+        color #2c3e50
     .res
         width 124rem
         // height 28rem
         .title
             font-size 4rem
+            color #2c3e50
         .content
             // height 18rem
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
@@ -108,6 +110,7 @@ export default {
         width 105rem
         .title
             font-size 4rem
+            color #2c3e50
         .content
             height 18rem
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)

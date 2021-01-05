@@ -2,7 +2,10 @@
     <div class="game">
         <common-header></common-header>
         <div class="content">
-            <h1>NBA 未来赛程</h1>
+            <div class="title">
+                <img src="../../assets/pictures/未来.png" alt="" />
+                <h1>NBA 未来赛程</h1>
+            </div>
             <div class="time-board">
                 <div v-for="(item, index) in data" :key="index" class="time">
                     <div class="date">{{ index }}</div>
@@ -189,22 +192,31 @@ export default {
 
 <style lang="stylus">
 .content
-    h1
-        margin-left 10rem
-        font-size 4rem
+    .title
+        display flex
+        align-items center
+        margin-left 6vw
+        img
+            height 4rem
+        h1
+            margin-left 2rem
+            font-size 4rem
+            color #2c3e50
     .time-board
         margin 0 auto 3rem
-        width 125rem
+        width 86.8vw
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
         font-size 2.5rem
         .time
             margin 0 auto
             position relative
-            width 125rem
-            height 56rem
+            width 100%
+            height 55rem
             padding 3rem
             .date
-                margin-left 2rem
+                margin-left 0rem
+                font-size 3rem
+                font-weight bold
             .info
                 margin 0 auto
 
