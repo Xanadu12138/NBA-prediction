@@ -29,7 +29,7 @@ export function rank() {
 
 export function prediction(awayTeam, homeTeam) {
     return request({
-        url: "/api/Prediction",
+        url: "/api/Predict",
         method: "get",
         params: {
             AwayTeam: awayTeam,
