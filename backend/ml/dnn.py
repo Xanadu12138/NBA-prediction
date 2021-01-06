@@ -11,8 +11,8 @@ class DNN(nn.Module):
     
     def __init__(self):
         super(DNN, self).__init__()
-        self.input_team_home_layer = nn.Linear(config.CURRENT_COMP_VECTOR_SIZE+config.TEAM_VECTOR_SIZE, 64)
-        self.input_team_away_layer = nn.Linear(config.CURRENT_COMP_VECTOR_SIZE+config.TEAM_VECTOR_SIZE, 64)
+        self.input_team_home_layer = nn.Linear(config.TEAM_VECTOR_SIZE, 64)
+        self.input_team_away_layer = nn.Linear(config.TEAM_VECTOR_SIZE, 64)
         self.home_team_layer = nn.Linear(64, 128)
         self.away_team_layer = nn.Linear(64, 128)
         self.comp_layer_1 = nn.Linear(256, 256)
@@ -22,7 +22,7 @@ class DNN(nn.Module):
         self.out_prob = nn.Linear(128, 2)
         self.out_score = nn.Linear(128, 2)
 
-    def forward(self, home_vector, away_vector, home_state, away_state):
+    def forward(self, home_vector, away_vector):
         """
         
         :param home_vector: 
@@ -38,11 +38,12 @@ class DNN(nn.Module):
         """
 
         home_representation = F.leaky_relu(
-            self.input_team_home_layer(torch.cat([home_vector, home_state], dim=1)),
+            self.input_team_home_layer(home_vector),
             negative_slope=-0.1
         )
         away_representation = F.leaky_relu(
-            self.input_team_away_layer(torch.cat([away_vector, away_state], dim=1)),
+            # self.input_team_away_layer(torch.cat([away_vector, away_state], dim=1)),
+            self.input_team_home_layer(away_vector),
             negative_slope=-0.1
         )
 

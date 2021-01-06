@@ -75,7 +75,7 @@ def SelectTeamStats(teamDf):
 
 
 if __name__ == "__main__":
-    df= GetInfoBySeason('2018-19','data/playerstats.csv')
+    df= GetInfoBySeason(season,'data/playerstats.csv')
     df = ExtractEssentials(df)
     teamDf = GroupByteam(df)
     SelectTeamStats(teamDf)

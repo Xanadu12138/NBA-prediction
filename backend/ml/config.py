@@ -13,10 +13,10 @@ TEAM_VECTOR_SIZE = 21
 batch_size = 64
 learning_rate = 0.01
 num_epochs = 50
-savePath = os.path.join('models','dnn.pt')
+savePath = os.path.join('models','Simdnn.pt')
 
 # Settings for data processing
-season = '2018-2019' # Select which season for training model
+season = '2019-20' # Select which season for training model
 
 # Extract essentials attribute for predict games.
 selectedAttr = ['PlayerName', 'Tm', 'G', 'GS', 'FG', 'FGA', 'FGAver', '3P', '3PA', '3PAver', '2P', '2PA', '2PAver', 'FT', 'FTA', 'FTAver', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS']

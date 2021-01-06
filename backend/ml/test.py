@@ -1,8 +1,17 @@
-# from config import *
-from ml.config import * 
+import config as config
+import dnn
+import os
+import torch
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import pandas as pd 
+import numpy as np 
+import os
 from torch.utils.data.dataset import Dataset
-from torchvision import transforms
-import re
+
 
 class NBADataset(Dataset):
     '''
@@ -76,11 +85,34 @@ def LoadDataset(path):
     indices = range(len(NBA_Dataset))
     indices_train = indices[:1100]
     indices_test = indices[1100:]
-    train_loader = torch.utils.data.DataLoader(NBA_Dataset, batch_size= batch_size, sampler = indices_train)
-    test_loader = torch.utils.data.DataLoader(NBA_Dataset, batch_size= batch_size, sampler = indices_test)
+    train_loader = torch.utils.data.DataLoader(NBA_Dataset, batch_size= 1, sampler = indices_train)
+    test_loader = torch.utils.data.DataLoader(NBA_Dataset, batch_size= 1, sampler = indices_test)
     return train_loader, test_loader
+
+def predict():
+    savePath = os.path.join('ml', config.savePath)
+    teamDic = GetTeamDict('data/2018-19teamstats.csv')
+    dnnNet = dnn.DNN()
+    if config.use_cuda:
+        dnnNet = dnnNet.cuda()
+    # Load model
+    dnnNet.load_state_dict(torch.load('models/Simdnn.pt'))
+    train, test = LoadDataset('data/2018-19teamstats.csv')
+    homeTeam, awayTeam, a, b, label = train[0]
+    tm1Stats = torch.FloatTensor([teamDic[homeTeam]])
+    tm2Stats = torch.FloatTensor([teamDic[awayTeam]])
+    tm1His = torch.IntTensor([[0,0]])
+    tm2His = torch.IntTensor([[0,0]])
     
-        
+    if config.use_cuda:
+            tm1Stats, tm2Stats, tm1His, tm2His = tm1Stats.cuda(), tm2Stats.cuda(), tm1His.cuda(), tm2His.cuda()
+    
+    output = dnnNet(tm1Stats, tm2Stats)
+    # output = dnn(tm1Stats, tm2Stats, tm1His, tm2His)
+    output = output.cpu()
+    prob = output[0][0]
+    print(output)
+    return str('{:.3f}%'.format(prob * 100))
 
 if __name__ == "__main__":
-    LoadDataset('data/2018-2019teamstats.csv')
+    predict()

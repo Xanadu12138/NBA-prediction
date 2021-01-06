@@ -11,6 +11,9 @@ if use_cuda:
 print('Network loading is done!')
 
 # Load Dataset
+DatasetName = season + 'teamstats.csv'
+DatasetPath = os.path.join('data',DatasetName)
+print(DatasetPath)
 train_dataset, test_dataset = LoadDataset('data/2018-2019teamstats.csv')
 
 print('Dataset loading is done!')
@@ -28,7 +31,7 @@ for epoch in range(num_epochs):
         if use_cuda:
             tm1Stats, tm2Stats, tm1His, tm2His, label = tm1Stats.cuda(), tm2Stats.cuda(), tm1His.cuda(), tm2His.cuda(), label.cuda()
         
-        output = dnn(tm1Stats, tm2Stats, tm1His, tm2His)
+        output = dnn(tm1Stats, tm2Stats)
 
         loss = criterion(output,label)
         optimizer.zero_grad()
@@ -46,7 +49,7 @@ for epoch in range(num_epochs):
                 if use_cuda:
                     tm1Stats, tm2Stats, tm1His, tm2His, label = tm1Stats.cuda(), tm2Stats.cuda(), tm1His.cuda(), tm2His.cuda(), label.cuda()
                 
-                output = dnn(tm1Stats, tm2Stats, tm1His, tm2His)
+                output = dnn(tm1Stats, tm2Stats)
                 right = Rightness(output, label)
                 val_right.append(right)
             

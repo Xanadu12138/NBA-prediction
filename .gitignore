@@ -139,3 +139,4 @@ backend/static/*
 
 # Model files
 backend/ml/models/*
+backend/ml/data/*
