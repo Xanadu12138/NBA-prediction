@@ -21,7 +21,6 @@
                             <div>{{ game[0].second }}</div>
                             <div>{{ game[0].secondScore }}</div>
                         </div>
-                        <div class="button">数据</div>
                     </div>
                     <div class="game game2">
                         <div class="time separate">
@@ -36,7 +35,6 @@
                             <div>{{ game[1].second }}</div>
                             <div>{{ game[1].secondScore }}</div>
                         </div>
-                        <div class="button" @click="toData">数据</div>
                     </div>
                     <div class="game game3">
                         <div class="time separate">
@@ -51,9 +49,8 @@
                             <div>{{ game[2].second }}</div>
                             <div>{{ game[2].secondScore }}</div>
                         </div>
-                        <div class="button">数据</div>
                     </div>
-                    <div class="more" @click="goToPath('/data')">
+                    <div class="more" @click="goToPath('/game')">
                         <img
                             src="../../assets/pictures/方向-向右-粗.png"
                             alt=""
@@ -186,28 +183,28 @@ export default {
             goToPath,
             game: [
                 {
-                    date: "12-12",
-                    time: "8:00",
-                    first: "火箭",
-                    firstScore: "99",
-                    second: "公牛",
-                    secondScore: "99",
+                    date: "1-6",
+                    time: "8:30",
+                    first: "篮网",
+                    firstScore: "---",
+                    second: "爵士",
+                    secondScore: "---",
                 },
                 {
-                    date: "12-12",
-                    time: "8:00",
-                    first: "火箭",
-                    firstScore: "99",
-                    second: "公牛",
-                    secondScore: "99",
+                    date: "1-6",
+                    time: "9:00",
+                    first: "灰熊",
+                    firstScore: "---",
+                    second: "湖人",
+                    secondScore: "---",
                 },
                 {
-                    date: "12-12",
-                    time: "8:00",
-                    first: "火箭",
-                    firstScore: "99",
-                    second: "公牛",
-                    secondScore: "99",
+                    date: "1-6",
+                    time: "10:00",
+                    first: "掘金",
+                    firstScore: "---",
+                    second: "森林狼",
+                    secondScore: "---",
                 },
             ],
             top: [],
@@ -303,6 +300,7 @@ export default {
                     width inherit
                     height 25.3rem
                     background-color #bdc3c7
+                    font-size 1.8rem
 
 
 .separate

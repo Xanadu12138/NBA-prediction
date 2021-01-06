@@ -14,7 +14,7 @@
                         <div class="pos">位置：{{ data.basicData.pos }}</div>
                         <div class="tall">身高：{{ data.basicData.tall }}</div>
                         <div class="bri">生日：{{ data.basicData.bri }}</div>
-                        <div class="tm">球队：{{ data.basicData.tm }}</div>
+                        <div class="tm">体重：{{ data.basicData.wei }}</div>
                     </div>
                 </div>
                 <div class="ability">
@@ -222,19 +222,19 @@ export default {
                     },
                 ],
             },
-
             playerID: this.$route.params.id,
         }
     },
     provide() {
         return {
-            tableData: this.data.tableData[0].fga,
+            getTableData: this.getTableData,
+            // tableData: this.data.tableData,
         }
     },
-    mounted() {
+    created() {
         playerInfo(this.playerID).then((data) => {
             this.data = data
-            console.log(this.data.tableData)
+            // console.log(this.data.tableData)
         })
     },
     methods: {
@@ -267,11 +267,21 @@ export default {
                         data: [
                             {
                                 value: [
-                                    this.data.tableData[0].pts,
-                                    this.data.tableData[0].blk,
-                                    this.data.tableData[0].stl,
-                                    this.data.tableData[0].trb,
-                                    this.data.tableData[0].ast,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].pts,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].blk,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].stl,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].trb,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].ast,
                                 ],
                                 name: "数据情况",
                             },
@@ -298,6 +308,10 @@ export default {
                 ],
             }
         },
+        getTableData() {
+            console.log(this.data.tableData)
+            return this.data.tableData
+        },
     },
 }
 </script>
@@ -314,10 +328,13 @@ export default {
         height 30rem
         margin 3rem 0
         .avatar
-            width 20rem
-            height 20rem
+            width 15rem
+            height 21rem
             margin 4.5rem 0 0 0
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5)
+            img
+                width 100%
+                overflow hidden
         .info
             width 50rem
             height 30rem
@@ -329,7 +346,7 @@ export default {
                 margin-top 2rem
                 font-size 2rem
                 display grid
-                grid-template-columns repeat(2, 26rem)
+                grid-template-columns repeat(2, 23rem)
                 grid-template-areas "name num" "pos tall" "bri tm"
                 grid-row-gap 5rem
                 .name
@@ -356,7 +373,7 @@ export default {
                 height 27rem
     .data-table
         width 120rem
-        height 52rem
+        // height 52rem
         margin 5rem 0
         .title
             font-size 2.2rem
