@@ -26,3 +26,14 @@ export function rank() {
         method: "get",
     })
 }
+
+export function prediction(awayTeam, homeTeam) {
+    return request({
+        url: "/api/Prediction",
+        method: "get",
+        params: {
+            AwayTeam: awayTeam,
+            HomeTeam: homeTeam,
+        },
+    })
+}

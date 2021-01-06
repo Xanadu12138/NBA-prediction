@@ -106,6 +106,7 @@
 
 <script>
 import CommonHeader from "@/components/header/Header"
+import { prediction } from "@/api"
 
 export default {
     name: "Prediction",
@@ -255,128 +256,129 @@ export default {
             ],
             options: [
                 {
-                    value: "1",
+                    value: "CLE",
                     label: "骑士",
                 },
                 {
-                    value: "2",
+                    value: "ORL",
                     label: "魔术",
                 },
                 {
-                    value: "3",
+                    value: "IND",
                     label: "步行者",
                 },
                 {
-                    value: "4",
+                    value: "ATL",
                     label: "老鹰",
                 },
                 {
-                    value: "5",
+                    value: "PHI",
                     label: "76人",
                 },
                 {
-                    value: "6",
+                    value: "BKN",
                     label: "篮网",
                 },
                 {
-                    value: "7",
+                    value: "MIA",
                     label: "热火",
                 },
                 {
-                    value: "8",
+                    value: "NYK",
                     label: "尼克斯",
                 },
                 {
-                    value: "9",
-                    label: "卡尔特人",
+                    value: "BOS",
+                    label: "凯尔特人",
                 },
                 {
-                    value: "10",
+                    value: "MIL",
                     label: "雄鹿",
                 },
                 {
-                    value: "11",
+                    value: "CHA",
                     label: "黄蜂",
                 },
                 {
-                    value: "12",
+                    value: "DET",
                     label: "活塞",
                 },
                 {
-                    value: "13",
+                    value: "TOR",
                     label: "猛龙",
                 },
                 {
-                    value: "14",
+                    value: "WAS",
                     label: "奇才",
                 },
                 {
-                    value: "15",
-                    label: "灰熊",
+                    value: "POR",
+                    label: "开拓者",
                 },
                 {
-                    value: "16",
+                    value: "OKC",
                     label: "雷霆",
                 },
                 {
-                    value: "17",
+                    value: "NOP",
                     label: "鹈鹕",
                 },
                 {
-                    value: "18",
+                    value: "LAC",
                     label: "快船",
                 },
                 {
-                    value: "19",
+                    value: "LAL",
                     label: "湖人",
                 },
                 {
-                    value: "20",
+                    value: "PHX",
                     label: "太阳",
                 },
                 {
-                    value: "21",
+                    value: "SAC",
                     label: "国王",
                 },
                 {
-                    value: "22",
+                    value: "MIN",
                     label: "森林狼",
                 },
                 {
-                    value: "23",
+                    value: "SAS",
                     label: "马刺",
                 },
                 {
-                    value: "24",
+                    value: "UTA",
                     label: "爵士",
                 },
                 {
-                    value: "25",
+                    value: "CHI",
                     label: "公牛",
                 },
                 {
-                    value: "26",
+                    value: "DAL",
                     label: "独行侠",
                 },
                 {
-                    value: "27",
+                    value: "GSW",
                     label: "勇士",
                 },
                 {
-                    value: "28",
+                    value: "HOU",
                     label: "火箭",
                 },
                 {
-                    value: "29",
+                    value: "MEM",
                     label: "灰熊",
                 },
                 {
-                    value: "30",
+                    value: "DEN",
                     label: "掘金",
                 },
             ],
             value1: "",
             value2: "",
+            customPrediction: "",
         }
     },
     methods: {
@@ -446,8 +448,12 @@ export default {
             }
         },
         handleClickSubmit() {
-            console.log(this.value1)
-            console.log(this.value2)
+            prediction(this.value1, this.value2).then((data) => {
+                this.customPrediction = data.HomeTeamWinPossibility
+                console.log(this.customPrediction)
+            })
+            // console.log(this.value1)
+            // console.log(this.value2)
         },
     },
 }

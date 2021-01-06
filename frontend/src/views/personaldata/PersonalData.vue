@@ -14,7 +14,7 @@
                         <div class="pos">位置：{{ data.basicData.pos }}</div>
                         <div class="tall">身高：{{ data.basicData.tall }}</div>
                         <div class="bri">生日：{{ data.basicData.bri }}</div>
-                        <div class="tm">球队：{{ data.basicData.tm }}</div>
+                        <div class="tm">体重：{{ data.basicData.wei }}</div>
                     </div>
                 </div>
                 <div class="ability">
@@ -267,11 +267,21 @@ export default {
                         data: [
                             {
                                 value: [
-                                    this.data.tableData[0].pts,
-                                    this.data.tableData[0].blk,
-                                    this.data.tableData[0].stl,
-                                    this.data.tableData[0].trb,
-                                    this.data.tableData[0].ast,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].pts,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].blk,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].stl,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].trb,
+                                    this.data.tableData[
+                                        this.data.tableData.length - 1
+                                    ].ast,
                                 ],
                                 name: "数据情况",
                             },
@@ -336,7 +346,7 @@ export default {
                 margin-top 2rem
                 font-size 2rem
                 display grid
-                grid-template-columns repeat(2, 26rem)
+                grid-template-columns repeat(2, 23rem)
                 grid-template-areas "name num" "pos tall" "bri tm"
                 grid-row-gap 5rem
                 .name
